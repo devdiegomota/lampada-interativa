@@ -1,0 +1,38 @@
+body {
+    padding: 30px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+    
+}
+
+#caixa {
+    max-width: 900px;
+    height: 90vh;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    margin: 0px auto;
+    align-content: center   ;
+
+}
+#botoes {
+    text-align: center;
+    
+}
+#caixa-imagem {
+    text-align: center;
+
+    
+}
+img {
+    width: 60%;
+   
+}
+#ligar {
+    padding: 10px;
+}
+#apagar {
+    padding: 10px;
+}
+#trocarluz {
+    padding: 10px;
+}
