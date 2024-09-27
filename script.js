@@ -6,8 +6,14 @@ let background = document.body;
 let trocar = document.getElementById('trocarluz');
 let somvidro = new Audio('./audio/quebrando.flac');
 let somtroca = new Audio('./audio/troca.wav');
+let sombotao = new Audio('./audio/click.mp3');
+let titulo = document.getElementById('titulo')
 
+//alert('Toque na lâmpada')
 
+function NaoQuebrada() {
+    return lampada.src.indexOf ('ligada') > -1 || lampada.src.indexOf ('apagada') > -1
+}
 
 
 function EstaQuebrada() {
@@ -25,15 +31,22 @@ function ligada() {
     } 
 }
 
-function trocando() {   
+function trocando() {
+    if (!NaoQuebrada()) {
+    sombotao.play();   
     somtroca.play();
     lampada.setAttribute('src', 'img/apagada.png')
     trocar.style.backgroundColor = ''
+    titulo.innerHTML = ''
+    }
     
 }
 
 function svidro() {
     somvidro.play();
+}
+function sbotao() {
+    sombotao.play();
 }
 
 function apagada() {
@@ -49,17 +62,21 @@ function apagada() {
 }
 
 function quebrada() {
+    titulo.innerHTML = 'Fiquei no escuro :('
     lampada.setAttribute('src', 'img/quebrada4.png')
     fundo.style.backgroundColor = 'black'
     background.style.backgroundColor = 'black'
     ligar.style.backgroundColor = ''
     trocar.style.backgroundColor = 'yellow'
+    
 }
 
 //lampada.addEventListener('mouseenter', ligada );
 //lampada.addEventListener('mouseleave', apagada);
-lampada.addEventListener('dblclick', quebrada);
-lampada.addEventListener('dblclick', svidro);
+lampada.addEventListener('click', quebrada);
+lampada.addEventListener('click', svidro);
+ligar.addEventListener('click', sbotao);
+apagar.addEventListener('click', sbotao);
 
 
 
